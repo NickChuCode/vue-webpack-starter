@@ -10,7 +10,7 @@ module.exports = {
         app: './src/index.js'
     },
     output: {
-        path: path.resolve(__dirname, 'dist'),
+        path: path.resolve(__dirname, '../dist'),
         // [name]: 模块的名称，入口如果是字符串，默认为 main，如果是对象，默认为属性名
         // [hash]: hash 值，hash:8 表示 8 位 hash 值
         // [chunkhash]: 模块不变，hash 值不变
