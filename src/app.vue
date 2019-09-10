@@ -10,5 +10,8 @@
     }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
+    #app {
+        color: blue
+    }
 </style>
