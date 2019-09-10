@@ -1,4 +1,6 @@
 const path = require('path')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const VueLoaderPlugin = require('vue-loader/lib/plugin')
 
 module.exports = {
     // webpack 4 中开始引入 mode 配置，可以配置 development, production。
@@ -7,7 +9,7 @@ module.exports = {
     mode: 'development',
     context: path.resolve(__dirname, '../'),
     entry: {
-        app: './src/index.js'
+        app: './src/main.js'
     },
     output: {
         path: path.resolve(__dirname, '../dist'),
@@ -16,5 +18,35 @@ module.exports = {
         // [chunkhash]: 模块不变，hash 值不变
         // [contenthash]: 解决 chunkhash 的一些 CSS 相关问题
         filename: "[name]-[hash:8].js"
-    }
+    },
+    resolve: {
+        alias: {
+            vue$: 'vue/dist/vue.esm.js'
+        },
+        extensions: ['*', '.js', '.vue', '.json']
+    },
+    module: {
+        rules: [
+            {
+                test: /\.js$/,
+                exclude: /node_modules/,
+                use: [
+                    {
+                        loader: "babel-loader"
+                    }
+                ]
+            },
+            {
+                test: /\.vue$/,
+                loader: 'vue-loader'
+            }
+        ]
+    },
+    plugins: [
+        new VueLoaderPlugin(),
+        new HtmlWebpackPlugin({
+            template: "./src/index.html",
+            filename: "index.html"
+        })
+    ]
 }
