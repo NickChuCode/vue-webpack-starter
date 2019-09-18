@@ -2,6 +2,10 @@ const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
 
+function resolve (dir) {
+    return path.join(__dirname, '../', dir)
+}
+
 module.exports = {
     // webpack 4 中开始引入 mode 配置，可以配置 development, production。
     // webpack 会默认进行一些定制化，比如在 production 模式下进行代码压缩或者图片优化等
@@ -21,7 +25,9 @@ module.exports = {
     },
     resolve: {
         alias: {
-            vue$: 'vue/dist/vue.esm.js'
+            'vue$': 'vue/dist/vue.esm.js',
+            '@': resolve('src')
+
         },
         extensions: ['*', '.js', '.vue', '.json']
     },
@@ -43,6 +49,12 @@ module.exports = {
                 ]
             },
             {
+                test: /\.(png|svg|jpg|gif)$/,
+                use: {
+                    loader: "url-loader"
+                }
+            },
+            {
                 test: /\.scss$/,
                 use: [
                     'vue-style-loader',
@@ -59,7 +71,7 @@ module.exports = {
     plugins: [
         new VueLoaderPlugin(),
         new HtmlWebpackPlugin({
-            template: "./src/index.html",
+            template: "index.html",
             filename: "index.html"
         })
     ]
