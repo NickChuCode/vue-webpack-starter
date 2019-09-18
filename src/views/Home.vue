@@ -2,6 +2,7 @@
   <div class="home">
     <img alt="Vue logo" src="../assets/logo.png">
     <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <button @click="hello">click me!</button>
   </div>
 </template>
 
@@ -13,6 +14,11 @@ export default {
   name: 'home',
   components: {
     HelloWorld
+  },
+  methods: {
+    hello() {
+      console.log('hi')
+    }
   }
 }
 </script>
