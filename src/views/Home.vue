@@ -2,7 +2,7 @@
   <div class="home">
     <img alt="Vue logo" src="../assets/logo.png">
     <HelloWorld msg="Welcome to Your Vue.js App"/>
-    <button @click="hello">click me! this is nick</button>
+    <button @click="hello">click me! this is nick!</button>
   </div>
 </template>
 

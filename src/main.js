@@ -14,8 +14,9 @@ new Vue({
 // 在入口文件index.js最后添加如下代码
 if (module.hot) {
   // 通知 webpack 该模块接受 hmr
-  module.hot.accept('./print.js', function () {
-    console.log('Accepting the updated printMe module!')
-    printMe()
-  })
+  module.hot.accept(err => {
+    if (err) {
+      console.error('Cannot apply HMR update.', err);
+    }
+  });
 }
