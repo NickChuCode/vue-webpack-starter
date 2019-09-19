@@ -2,7 +2,7 @@
   <div class="home">
     <img alt="Vue logo" src="../assets/logo.png">
     <HelloWorld msg="Welcome to Your Vue.js App"/>
-    <button @click="hello">click me!</button>
+    <button @click="hello">click me! this is</button>
   </div>
 </template>
 
@@ -16,7 +16,7 @@ export default {
     HelloWorld
   },
   methods: {
-    hello() {
+    hello () {
       console.log('hi')
     }
   }

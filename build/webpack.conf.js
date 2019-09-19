@@ -1,4 +1,5 @@
 const path = require('path')
+const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
 
@@ -14,6 +15,10 @@ module.exports = {
     context: path.resolve(__dirname, '../'),
     entry: {
         app: './src/main.js'
+    },
+    devServer: {
+        port: 9000,
+        hot: true // 开启 hmr
     },
     output: {
         path: path.resolve(__dirname, '../dist'),
@@ -76,6 +81,7 @@ module.exports = {
         new HtmlWebpackPlugin({
             template: "index.html",
             filename: "index.html"
-        })
+        }),
+        new webpack.HotModuleReplacementPlugin()
     ]
 }
