@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "webpack --progress --color --config build/webpack.conf.js",
-    "dev": "webpack-dev-server --mode development --config build/webpack.conf.js --hot --inline"
+    "dev": "webpack-dev-server --mode development --config build/webpack.conf.js"
   },
   "repository": {
     "type": "git",
